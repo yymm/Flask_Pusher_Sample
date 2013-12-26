@@ -5,7 +5,7 @@ import pusher
 
 app = Flask(__name__)
 
-app.config.from_pyfile("app.cfg")
+#app.config.from_pyfile("app.cfg")
 
 #p = pusher.Pusher(
     #app_id = app.config["ID"],
