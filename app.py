@@ -7,11 +7,12 @@ app = Flask(__name__)
 
 app.config.from_pyfile("app.cfg")
 
-p = pusher.Pusher(
-    app_id = app.config["ID"],
-    key = app.config["KEY"],
-    secret = app.config["SECRET"]
-)
+#p = pusher.Pusher(
+    #app_id = app.config["ID"],
+    #key = app.config["KEY"],
+    #secret = app.config["SECRET"]
+#)
+p = pusher.pusher_from_url()
 
 @app.route('/')
 def index():
