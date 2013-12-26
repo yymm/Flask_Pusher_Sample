@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h2>Flask - Pusher</h2>
+    <a href="#" id="push">((((((((((っ･ω･)っ ﾌﾞ-ﾝ</a>
+  </div>
+</body>
+
+<script type="text/javascript">
+  // Enable pusher logging - don't include this in production
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+
+  var pusher = new Pusher('49ea02963e901b414dd0');
+  var channel = pusher.subscribe('channel1');
+  channel.bind('event1', function(data) {
+    alert(data.message);
+  });
+  $('#push').click( function(){ 
+    $.ajax({
+	  type: "POST",
+  	  url: "{{ url_for('pusher') }}",
+	  contentType: 'application/json',
+  	  success: function(data) {
+  	    console.log(data);
+  	  }
+    });
+  });
+</script>
