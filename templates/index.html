@@ -20,7 +20,7 @@
     }
   };
 
-  var pusher = new Pusher('49ea02963e901b414dd0');
+  var pusher = new Pusher('20cf472f3baa800281ff');
   var channel = pusher.subscribe('channel1');
   channel.bind('event1', function(data) {
     alert(data.message);
